@@ -17,12 +17,13 @@ import Base from './Base'
 import { Container } from 'reactstrap'
 import { useLocation } from 'react-router-dom'
 const SearchProducts = (par) => {
-    const location = useLocation();
+    // const {data} = par.location.state;
+    // const location = useLocation();
     // console.log(location.state.par)
-    // console.log(par.prop.data)
+    // console.log(par.key)
 
     console.log(par);
-    console.log("Hello this is data for prop: "+JSON.stringify(par));
+    console.log("Hello this is data for prop: "+JSON.stringify({par}));
     // // const {data} = prop.location.state;
     // console.log("Hello this is data for prop: "+JSON.stringify(state));
     // console.log("Hello this is data for prop new: "

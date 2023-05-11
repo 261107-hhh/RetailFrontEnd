@@ -433,6 +433,7 @@
 
 
 
+// import { useHistory } from "react-router-dom";
 
 
 
@@ -444,7 +445,7 @@ import SearchProducts from './SearchProducts';
 import { Button } from 'reactstrap';
 import SearchCompo from './SearchCompo';
 
-function SearchBarProduct({ search, par }) {
+const SearchBarProduct = ({ search, par }) => {
     const [productName, setproductName] = useState('');
     const navigate = useNavigate();
     const handelChange = (e) => {
@@ -453,13 +454,21 @@ function SearchBarProduct({ search, par }) {
         setproductName(e.target.value);
         search(e.target.value);
     }
+    // const history = useHistory();
 
     const handelNew = (e) => {
         if (e.key === "Enter") {
             console.log(" data got on click: " + productName);
-            search(productName);
+            // search(productName);
+
+            // history.push({
+            //     pathname:"/searchProducts",
+            //     state: {par: par}
+            // })
             // <SearchCompo par = {par}/>
-            navigate("/searchCompo", par = {par})
+            // navigate("/searchCompo", par = {par})
+            navigate("/searchCompo")
+            // navigate("/searchProducts")
         }
         // navigate("/searchProducts")
         //    search(productName);
