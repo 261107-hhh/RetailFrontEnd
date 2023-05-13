@@ -56,54 +56,65 @@ function App() {
 
     //   }
     // </div>
+    <div
+      style={{
+        'backgroundImage': "url('https://img.freepik.com/free-photo/box-market-electronic-ordering-shop-basket_1421-567.jpg?w=996&t=st=1679485879~exp=1679486479~hmac=c784bbbc4eb07724200ba010aba07d15e6caf19fa7cb3c9c25431651e3d0b302')",
+        'height': '100%',
+        // 'marginTop': "-41px",
+        // 'marginBottom': '-15px',
+        'backgroundRepeat': "no-repeat",
+        'backgroundSize': "cover"
+      }}
+    >
 
-    <CartProvider>
-      <BrowserRouter>
-        <ToastContainer />
+      <CartProvider>
+        <BrowserRouter>
+          <ToastContainer />
 
-        <Routes>
-          <Route path="/" element={<Store />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Service />}></Route>
-          <Route path="/banner" element={<Banner />}></Route>
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="store/:categoryId" element={<Store />} />
-          <Route path="viewProduct/:productId" element={<Viewproduct />} />
+          <Routes>
+            <Route path="/" element={<Store />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Service />}></Route>
+            <Route path="/banner" element={<Banner />}></Route>
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="store/:categoryId" element={<Store />} />
+            <Route path="viewProduct/:productId" element={<Viewproduct />} />
 
 
-          <Route path="/searchProducts" element={<SearchProducts/>} />
-          <Route path="/searchCompo" element={<SearchCompo/>} />
+            <Route path="/searchProducts" element={<SearchProducts />} />
+            <Route path="/searchCompo" element={<SearchCompo />} />
 
-          <Route path="/searchbar" element={<SearchBarProduct/>} />
-          
-          {/* Admin-DashBoard Start */}
+            <Route path="/searchbar" element={<SearchBarProduct />} />
 
-          <Route path="/admin-dashboard" element={<Admindashboard />}>
-            <Route path="home" element={<Adminhome />} />
-            <Route path="addProduct" element={<Addproduct />} />
-            <Route path="uploadproductimage" element={<Uploadimage />} />
-            <Route path="category" element={<Addcategory />} />
-            <Route path="viewproduct" element={<AdminViewproduct />} />
-            <Route path="updateProduct/:productId" element={<Updateproduct />} />
-            <Route path="adminuser" element={<Adminuser />} />
-            <Route path="update-user/:userId" element={<UpdateUser />} />
-            <Route path="order" element={<Order />} />
-            <Route path="/admin-dashboard/order/update/:orderId" element={<UpdateOrder />} />
-            <Route path="/admin-dashboard/cat" element={<Category />} />
+            {/* Admin-DashBoard Start */}
 
-          </Route>
-          {/* Admin-DashBoard End */}
+            <Route path="/admin-dashboard" element={<Admindashboard />}>
+              <Route path="home" element={<Adminhome />} />
+              <Route path="addProduct" element={<Addproduct />} />
+              <Route path="uploadproductimage" element={<Uploadimage />} />
+              <Route path="category" element={<Addcategory />} />
+              <Route path="viewproduct" element={<AdminViewproduct />} />
+              <Route path="updateProduct/:productId" element={<Updateproduct />} />
+              <Route path="adminuser" element={<Adminuser />} />
+              <Route path="update-user/:userId" element={<UpdateUser />} />
+              <Route path="order" element={<Order />} />
+              <Route path="/admin-dashboard/order/update/:orderId" element={<UpdateOrder />} />
+              <Route path="/admin-dashboard/cat" element={<Category />} />
 
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/user" element={<PrivateRoutes />}>
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="cart" element={<Cart />} />
+            </Route>
+            {/* Admin-DashBoard End */}
 
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </CartProvider>
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/user" element={<PrivateRoutes />}>
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="cart" element={<Cart />} />
+
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
+    </div>
 
   );
 }

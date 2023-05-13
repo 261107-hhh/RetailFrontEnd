@@ -1,17 +1,19 @@
 import React from "react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Container,Row,Col,Input,FormCol,Card, CardHeader,Form,Label,Button, CardBody} from "reactstrap";
 import {updateOrder} from "../../../Service/order-service"
 function UpdateOrder(){
     const {orderId}=useParams()
     const[order,setOrder]=useState(null);
+    const navigate = useNavigate();
 
     const orderUpdateInput=(event)=>{
         event.preventDefault();
         updateOrder(order,orderId).then(data=>{
             toast.success("Order Updated")
+            navigate('/user/dashboard')
         }).catch(error=>{
             console.log(error)
         })
@@ -22,7 +24,7 @@ function UpdateOrder(){
                 <Col md={12}>
                    <Card color="light">
                     <CardBody>
-                        {JSON.stringify(order)}
+                        {/* {JSON.stringify(order)} */}
                         <h3 className="text-center">Update Details Order</h3>
                         <Form className="ms-2 mt-4" onSubmit={orderUpdateInput} >
                       

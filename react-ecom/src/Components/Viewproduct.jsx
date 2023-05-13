@@ -9,9 +9,10 @@ import { Base_url } from '../Service/product-service'
 import { Link } from 'react-router-dom'
 import { addItemToCart } from '../Service/cartService'
 import { toast } from "react-toastify"
+import { checkLogin } from "../auth"
 
 
-function Viewproduct() {
+function Viewproduct({addToCart}) {
     const navigate = useNavigate()
     const goStore = () => {
         navigate("/store/all")
@@ -77,6 +78,8 @@ function Viewproduct() {
                                 <div className="text-center" style={btnSet}>
                                     <Button size="lg" color="primary" onClick={goStore} >Back</Button>
                                     <Button size="lg" style={{ marginLeft: '30px' }} color="success" onClick={CardButton} >Add To Card</Button>
+                                    {/* <Button onClick={(event) => (checkLogin()) ? (addToCart(product)) : toast.error("Login Please then add to cart")} size='sm' className='ms-4' color={product.stock ? 'primary' : 'danger'} >{product.stock ? 'Add to Cart' : 'out of stock'}</Button> */}
+
                                 </div>
                             </Card>)}
 

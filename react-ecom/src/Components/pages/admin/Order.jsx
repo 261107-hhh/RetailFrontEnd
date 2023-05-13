@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { CardBody, Card, Row, Col, CardText, FormGroup, Input, Table, Button, Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
 import { deleteOrder, getListOfOrder } from "../../../Service/order-service";
-import { Base_url } from '../../../Service/axios-helper'
+import { Base_url } from '../../../Service/product-service'
 import { Route, Link, useNavigate } from "react-router-dom";
 import { deleteOrder as dp } from "../../../Service/order-service"
 import { toast } from "react-toastify";
@@ -41,9 +41,9 @@ function Order() {
         })
     }, [])
 
-    const openModal = (order) => {
+    const openModal = (o) => {
         setModal(true)
-        setSelectItem(order)
+        setSelectItem(o)
     }
 
     let imagesStyle = {

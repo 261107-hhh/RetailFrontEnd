@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { NavLink as ReactLink, useNavigate, useNavigationType} from 'react-router-dom'
+import { NavLink as ReactLink, useNavigate, useNavigationType } from 'react-router-dom'
 import SearchBarProduct from './SearchBarProduct'
 import {
   Collapse,
@@ -60,49 +60,56 @@ function CustomNavbar({ search }) {
   }
   // const [state, setState] = useState();
   const searchProducts = (event) => {
-    searchProduct(event).then(data => {
-      if (data.length === 0) {
+
+    if (event.length === 0) {
+      navigate('/store/all')
+      
+    }
+    else {
+
+      searchProduct(event).then(data => {
+        if (data.length === 0) {
+          navigate("/store/all")
+        }
+        else {
+          const val = data;
+          console.log(JSON.stringify(data) + " hi there is search bar")
+          setdataPar(data)
+          console.log("navigate to other page with data: " + data)
+          console.log("navigate to other page with data: " + JSON.stringify(data))
+          // navigate('/searchProducts', {state: {dataPar}})
+          // navigator.push('/searchProducts', {state: {dataPar}});
+
+          // navigate.('/searchProducts')
+          // navigate('/searchCompo')
+
+          setData(data);
+          // navigate('/searchProducts')
+
+
+          // state?: any, opts?: NavigateOptions)
+          // naavv.push("/searchProducts", dataPar)
+          // const url = `/searchProducts?data=${encodeURIComponent(JSON.stringify(data))}`;
+          // window.location.href = url;
+          // setState(data);
+          // history(navigate('//searchProducts'), this.state = dataPar)
+          // history.pathname = "/searchProducts";
+          // history.state = {dataPar};
+          // navigate(history)
+          // navigate(<SearchProducts dat = {dataPar}/>)
+          // pathname: "/searchProducts",
+          // state: { data: data }
+        }
+      }).catch(error => {
+        console.log(error)
         navigate("/store/all")
-      }
-      else {
-        const val = data;
-        console.log(JSON.stringify(data) + " hi there is search bar")
-        setdataPar(data)
-        console.log("navigate to other page with data: " + data)
-        console.log("navigate to other page with data: " + JSON.stringify(data))
-        // navigate('/searchProducts', {state: {dataPar}})
-        // navigator.push('/searchProducts', {state: {dataPar}});
-
-        // navigate.('/searchProducts')
-        // navigate('/searchCompo')
-
-        setData(data);
-        // navigate('/searchProducts')
-
-
-        // state?: any, opts?: NavigateOptions)
-        // naavv.push("/searchProducts", dataPar)
-        // const url = `/searchProducts?data=${encodeURIComponent(JSON.stringify(data))}`;
-        // window.location.href = url;
-        // setState(data);
-        // history(navigate('//searchProducts'), this.state = dataPar)
-        // history.pathname = "/searchProducts";
-        // history.state = {dataPar};
-        // navigate(history)
-        // navigate(<SearchProducts dat = {dataPar}/>)
-        // pathname: "/searchProducts",
-        // state: { data: data }
-      }
-    });
-
+      })
+    }
     // return <SearchBarProduct search={searchProducts} par={dataPar} />
     // {<SearchProducts daata= {data}/>}
     // navigate("/searchProducts")
 
-    // ).catch(error => {
-    //   console.log(error)
-    //   navigate("/store/all")
-    // })
+
 
 
   }

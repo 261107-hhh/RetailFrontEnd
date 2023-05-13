@@ -200,11 +200,12 @@ function Dashboard() {
   //   height: '90vh',
   //   // backgroundColor: 'rebeccapurple'
   // }
-  const myStyle = {
-    backgroundImage: "url('Images/Store.jpg')",
-    height: "93vh",
-    // backgroundColor: "red"
-  }
+  // const myStyle = {
+  //   'backgroundImage': "url('Images/Store.jpg')",
+  //   'height': "100%",
+  //   // 'marginBottom': '-325px'
+  //   // backgroundColor: "red"
+  // }
 
   const htmlOrder = () => {
     return (
@@ -215,7 +216,20 @@ function Dashboard() {
 
         </div> */}
         <Row>
-          <div style={{ width: '100%', height: '', backgroundImage: "url('Images/cemra.png')" }}>
+          <div
+            // style={{
+            //   width: '100%',
+            //   height: '',
+            //   backgroundImage: "url('Images/cemra.png')"
+            // }}
+            style={{
+              'height': '100vh',
+              // 'marginTop': "-41px",
+              // 'marginBottom': '-15px',
+              'marginBottom': '0px',
+              // 'backgroundImage': "url('https://img.freepik.com/free-photo/box-market-electronic-ordering-shop-basket_1421-567.jpg?w=996&t=st=1679485879~exp=1679486479~hmac=c784bbbc4eb07724200ba010aba07d15e6caf19fa7cb3c9c25431651e3d0b302')",
+            }}
+          >
             <Card style={{
               display: 'table',
               width: 'auto',
@@ -270,7 +284,7 @@ function Dashboard() {
                     </Row>
                     <Container>
                       {/* {console.log(order.paymentStatus+" this is payment statys")} */}
-                      {order.paymentStatus == "NOT PAID" ? <Button onClick={()=> initiatePayment(order)} color='success'size='sm'>Pay Now</Button> : ""}
+                      {order.paymentStatus == "NOT PAID" ? <Button onClick={() => initiatePayment(order)} color='success' size='sm'>Pay Now</Button> : ""}
                       <Button size='sm' onClick={() => openModal(order)} color='primary' className='ms-3'>View Product</Button>
                     </Container>
                   </CardBody>
@@ -284,7 +298,9 @@ function Dashboard() {
     )
   }
   return (
-    <div style={myStyle}>
+    <div 
+    // style={myStyle}
+    >
 
       <Base>
         <>

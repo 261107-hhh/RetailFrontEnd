@@ -450,9 +450,9 @@ const SearchBarProduct = ({ search, par }) => {
     const navigate = useNavigate();
     const handelChange = (e) => {
 
-
         setproductName(e.target.value);
         search(e.target.value);
+        console.log(par + " parrrrrrrrr")
     }
     // const history = useHistory();
 
@@ -467,12 +467,13 @@ const SearchBarProduct = ({ search, par }) => {
             // })
             // <SearchCompo par = {par}/>
             // navigate("/searchCompo", par = {par})
-            navigate("/searchCompo")
+            // navigate("/searchCompo")
+            navigate("/searchCompo", { state: { par: par } })
+
             // navigate("/searchProducts")
         }
         // navigate("/searchProducts")
         //    search(productName);
-
     }
     const proLink = "http://localhost:3000/viewproduct/";
     return (
@@ -493,17 +494,19 @@ const SearchBarProduct = ({ search, par }) => {
                 />
             </div>
             <div className='resultList'>
-                {par.map((res, id) => {
-                    return (
-                        <>
-                            <a key={id} href={proLink + `${res.productId}`}>
-                                <div>
-                                    {res.productName}
-                                </div>
-                            </a>
-                        </>
-                    )
-                })}
+                {
+                    par.map((res, id) => {
+                        return (
+                            <>
+                                <a key={id} href={proLink + `${res.productId}`}>
+                                    <div>
+                                        {res.productName}
+                                    </div>
+                                </a>
+                            </>
+                        )
+                    })
+                }
             </div >
         </>
     )

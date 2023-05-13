@@ -83,7 +83,10 @@ function Cart() {
       value.setCart(data)
       setCart(data)
       toast.success("Item Removed")
-      navigate("/store/all")
+      if(item.length === 0){
+        navigate("/store/all")
+
+      }
     }).catch(error => {
       console.log(error);
     })
@@ -204,10 +207,11 @@ function Cart() {
   const CartItemsHtml = () => {
     return (
       <div style={{
-        marginTop: '7rem'
+        'marginTop': '7rem'
+
       }}>
 
-        <Container>
+        <Container >
           <h1>Cart Items({cart.iteam.length})</h1>
           <div className='mt-3'>
             {cart.iteam.map((cartItem, index) => (
@@ -275,7 +279,10 @@ function Cart() {
 
   const cartHtml = () => {
     return (
-      <Container >
+      <Container style={{
+        'marginBottom': '-15px',
+        'height': '100%'
+      }}>
         {orderProceed ? orderCreated ? <h1>Order Create , Redirecting to payment...</h1> : orderProceedHtml() : CartItemsHtml()}
 
       </Container>
@@ -284,17 +291,31 @@ function Cart() {
     )
   }
   return (
-    <div style={{    backgroundImage: "url('https://img.freepik.com/free-photo/box-market-electronic-ordering-shop-basket_1421-567.jpg?w=996&t=st=1679485879~exp=1679486479~hmac=c784bbbc4eb07724200ba010aba07d15e6caf19fa7cb3c9c25431651e3d0b302')",
-    height: '100vh',
-    marginTop: "-41px",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover"
-    }}>
+    <div
+      style={{
+        'backgroundImage': "url('https://img.freepik.com/free-photo/box-market-electronic-ordering-shop-basket_1421-567.jpg?w=996&t=st=1679485879~exp=1679486479~hmac=c784bbbc4eb07724200ba010aba07d15e6caf19fa7cb3c9c25431651e3d0b302')",
+        'height': '100%',
+        'minHeight': '100vh',
+        'marginTop': "-41px",
+        'marginBottom': '-15px',
+        'backgroundRepeat': "no-repeat",
+        'backgroundSize': "cover"
+      }}
+    // style={{
 
-      <Base >
-        {cart ? cartHtml() : <h1>Loding...</h1>}
-      </Base>
-    </div>
+    //   'marginTop': "-41px",
+    //   'marginBottom': '-15px',
+    //   'backgroundImage': "url('https://img.freepik.com/free-photo/box-market-electronic-ordering-shop-basket_1421-567.jpg?w=996&t=st=1679485879~exp=1679486479~hmac=c784bbbc4eb07724200ba010aba07d15e6caf19fa7cb3c9c25431651e3d0b302')",
+    // }}
+    >
+
+      <Base style={{
+        'marginBottom': '-15px',
+        'height': '100vh'
+      }}>
+      {cart ? cartHtml() : <h1>Loding...</h1>}
+    </Base>
+    </div >
   )
 }
 
