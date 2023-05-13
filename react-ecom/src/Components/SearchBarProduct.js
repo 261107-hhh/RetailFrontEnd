@@ -448,8 +448,9 @@ import SearchCompo from './SearchCompo';
 const SearchBarProduct = ({ search, par }) => {
     const [productName, setproductName] = useState('');
     const navigate = useNavigate();
+    const [ed, setEd] = useState(true);
     const handelChange = (e) => {
-
+        setEd(true)
         setproductName(e.target.value);
         search(e.target.value);
         console.log(par + " parrrrrrrrr")
@@ -468,6 +469,8 @@ const SearchBarProduct = ({ search, par }) => {
             // <SearchCompo par = {par}/>
             // navigate("/searchCompo", par = {par})
             // navigate("/searchCompo")
+            setEd(false)
+            setproductName('');
             navigate("/searchCompo", { state: { par: par } })
 
             // navigate("/searchProducts")
@@ -493,21 +496,23 @@ const SearchBarProduct = ({ search, par }) => {
                     onKeyUp={handelNew}
                 />
             </div>
-            <div className='resultList'>
-                {
-                    par.map((res, id) => {
-                        return (
-                            <>
-                                <a key={id} href={proLink + `${res.productId}`}>
-                                    <div>
-                                        {res.productName}
-                                    </div>
-                                </a>
-                            </>
-                        )
-                    })
-                }
-            </div >
+            {ed &&
+                <div className='resultList'>
+                    {
+                        par.map((res, id) => {
+                            return (
+                                <>
+                                    <a key={id} href={proLink + `${res.productId}`}>
+                                        <div>
+                                            {res.productName}
+                                        </div>
+                                    </a>
+                                </>
+                            )
+                        })
+                    }
+                </div >
+            }
         </>
     )
 }

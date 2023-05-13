@@ -61,11 +61,11 @@ function CustomNavbar({ search }) {
   // const [state, setState] = useState();
   const searchProducts = (event) => {
 
-    if (event.length === 0) {
-      navigate('/store/all')
+    // if (event.length === 0) {
+    //   navigate('/store/all')
       
-    }
-    else {
+    // }
+    // else {
 
       searchProduct(event).then(data => {
         if (data.length === 0) {
@@ -104,7 +104,7 @@ function CustomNavbar({ search }) {
         console.log(error)
         navigate("/store/all")
       })
-    }
+    // }
     // return <SearchBarProduct search={searchProducts} par={dataPar} />
     // {<SearchProducts daata= {data}/>}
     // navigate("/searchProducts")
