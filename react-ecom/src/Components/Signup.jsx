@@ -100,7 +100,7 @@ function Signup() {
                   <h3 className='text-center '>SignUp</h3>
                   <form onSubmit={registerUser}>
                     <div className='my-3'>
-                      <Label for="username">Name</Label>
+                      <Label for="name">Name</Label>
                       <Input type="text" id="name" placeholder='Enter Your Name Here'
                         onChange={(event) => onFieldChange(event, 'name')}
                         value={user.name} required
@@ -143,7 +143,7 @@ function Signup() {
                     </div>
 
                     <div className='my-3'>
-                      <Label for="Gender">Select your Gender</Label>
+                      <Label for="gender">Select your Gender</Label>
                       <Input type="select" id="gender"
                         onChange={(event) => onFieldChange(event, 'gender')}
                         value={user.gender} required
@@ -157,7 +157,7 @@ function Signup() {
                     </div>
 
                     <div className='my-3'>
-                      <Label for="mobileNo">Enter your Mobile Number</Label>
+                      <Label for="phone">Enter your Mobile Number</Label>
                       {/* <Input type="number" id="phone" placeholder='Phone Number'
                         onChange={(event) => onFieldChange(event, 'phone')}
                         value={user.phone} 

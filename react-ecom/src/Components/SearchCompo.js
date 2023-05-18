@@ -49,13 +49,13 @@ const SearchCompo = () => {
     })
     // console.log(data)
     const res = data.map((pro, id) => <li>{pro}</li>)
-    console.log(res);
-    console.log(res[0].props);
-    console.log(res[0].props.children);
+    // console.log(res);
+    // console.log(res[0].props);
+    // console.log(res[0].props.children);
 
 
-    console.log(data)
-    console.log(data[0]);
+    // console.log(data)
+    // console.log(data[0]);
     // let imagesStyle = {
     //     width: '100%',
     //     height: '100px',

@@ -441,7 +441,7 @@ import React, { useState } from 'react'
 import "./searchBar.css"
 import { Navigate, useNavigate } from 'react-router-dom';
 import { loadSingleProduct, searchProduct } from '../Service/product-service';
-import SearchProducts from './SearchProducts';
+// import SearchProducts from './SearchProducts';
 import { Button } from 'reactstrap';
 import SearchCompo from './SearchCompo';
 
@@ -470,8 +470,11 @@ const SearchBarProduct = ({ search, par }) => {
             // navigate("/searchCompo", par = {par})
             // navigate("/searchCompo")
             setEd(false)
-            setproductName('');
+            search(e.target.value);
+            // setproductName(e.target.value);
+            console.log("navigating:::");
             navigate("/searchCompo", { state: { par: par } })
+            console.log("navigated:::");
 
             // navigate("/searchProducts")
         }

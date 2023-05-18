@@ -31,7 +31,7 @@ import Order from './Components/pages/admin/Order';
 import UpdateOrder from './Components/pages/admin/UpdateOrder';
 import Category from './Components/pages/admin/Category';
 import SearchBarProduct from './Components/SearchBarProduct';
-import SearchProducts from './Components/SearchProducts';
+// import SearchProducts from './Components/SearchProducts';
 import SearchCompo from './Components/SearchCompo';
 
 const sayHello = () => {
@@ -73,16 +73,17 @@ function App() {
 
           <Routes>
             <Route path="/" element={<About />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About />}> </Route>
+
             <Route path="/services" element={<Service />}></Route>
             <Route path="/banner" element={<Banner />}></Route>
-            <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
             <Route path="store/:categoryId" element={<Store />} />
-            <Route path="viewProduct/:productId" element={<Viewproduct />} />
+            <Route path="viewproduct/:productId" element={<Viewproduct />} />
 
 
-            <Route path="/searchProducts" element={<SearchProducts />} />
+            {/* <Route path="/searchProducts" element={<SearchProducts />} />  // can be removed */}
+          
             <Route path="/searchCompo" element={<SearchCompo />} />
 
             <Route path="/searchbar" element={<SearchBarProduct />} />

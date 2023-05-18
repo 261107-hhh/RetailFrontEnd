@@ -23,12 +23,14 @@ function Login() {
     if (loginData.username.trim() === '') {
       toast.error("Username should not be blanl");
     }
+
     if (loginData.password.trim() === '') {
       toast.error("password field should not be blank");
     }
 
     //send the request to server to generated token
-    generateToken(loginData)
+    else{
+      generateToken(loginData)
       .then((data) => {
         toast.success("Login Success");
         login(data, () => {
@@ -44,6 +46,7 @@ function Login() {
           toast.error("login Error");
         }
       })
+    }
   })
 
   const myStyle = {
