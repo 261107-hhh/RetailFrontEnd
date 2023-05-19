@@ -141,7 +141,6 @@ describe('Render App', () => {
       expect(text).toBeInTheDocument();
     })
 
-
     // Only after login we can do this.
 
     // test('should render User Dashboard Page', () => {
